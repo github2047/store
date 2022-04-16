@@ -1,0 +1,87 @@
+# 服务端口
+server:
+  port: 30083
+
+# 应用名称
+spring:
+  application:
+    name: pay-server
+  mail:
+    # 填写邮箱供应的SMTP地址
+    # smtp.yandex.com
+    host: smtp.qq.com
+    # 用户名
+    username: 2412601628@qq.com
+    password: dzusdxfkqtfyeaaf
+    from: 2412601628@qq.com
+    # 填写密码 / 授权码 Qw!212er
+#    password: xotopefxpuytdghg
+#    from: 3094651170@qq.com
+    port: 465
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+          ssl:
+            enable: true
+
+  # 数据库驱动：
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    # 数据源名称
+    name: defaultDataSource
+    # 数据库连接地址
+    url: jdbc:mysql://localhost:3306/shop?serverTimezone=Asia/Shanghai
+    # 数据库用户名&密码：
+    username: root
+    password: 123123
+    type: com.alibaba.druid.pool.DruidDataSource
+
+    #数据源配置
+    druid:
+      max-active: 1000
+      initial-size: 10
+      max-wait: 1000
+      min-idle: 10
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      validation-query: select 1
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      max-pool-prepared-statement-per-connection-size: 0
+
+      #监控
+      stat-view-servlet:
+        url-pattern: /druid/*
+        reset-enable: false
+        login-username: admin
+        login-password: admin
+        allow: 127.0.0.1
+      web-stat-filter:
+        url-pattern: /*
+        exclusions: /druid/*,*.js,*.css,*.html,*.png,*.jpg
+
+  jpa:
+    show-sql: true
+
+  redis: # redis的配置
+    database: 3
+    host: 127.0.0.1
+    port: 6379
+  cache:
+    redis:
+      time-to-live: 60000 # 缓存默认的有效期
+#    mvc:
+#        view:
+#            prefix: classpath:/templates/
+#            suffix: .jsp
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+app:
+  sign:
+    # 最大误差时间 单位:毫秒
+    max-deviation-time: 1000000

@@ -1,0 +1,188 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title th:text="${order.title}"></title>
+    <style>
+        *{margin:0;padding:0}
+        .text-show{display:none}
+        .row:after{content:' ';display:block;clear:both}
+        .float-left{float:left}
+        .float-right{float:right}
+        .nav{background-color:rgba(215,215,215,0);border-bottom:solid 1px #3333330f}
+        .container{max-width:1000px;margin:auto}
+        .logo{padding:10px 0;display:flex}
+        .site-logo{display:inline-block;height:50px;width:50px}
+        .site-logo .icon{display:block;height:50px;width:50px}
+        .site-text{margin-left:10px;margin-top:10px;float:left;font-size:20px;font-weight:700;color:#666}
+        .message-wrap{padding:10px 0}
+        .order-info{background-color:#eff0f2;padding:15px;border-radius:5px}
+        .item{flex:1}
+        .order-info .title{font-size:16px;font-weight:700}
+        .order-info .money{color:red;font-size:14px;font-weight:700}
+        a{text-decoration:none;color:#8457ff}
+        .form-control{display:block;width:100%;padding:.375rem .75rem;font-size:1rem;font-weight:400;line-height:1.5;color:#212529;background-color:#fff;background-clip:padding-box;border:1px solid #ced4da;-webkit-appearance:none;-moz-appearance:none;appearance:none;border-radius:.25rem;box-sizing:border-box;transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out}
+        .btn{display:inline-block;font-weight:400;line-height:1.5;color:#212529;text-align:center;text-decoration:none;vertical-align:middle;cursor:pointer;-webkit-user-select:none;-moz-user-select:none;user-select:none;background-color:transparent;border:1px solid transparent;padding:.375rem .75rem;font-size:1rem;border-radius:.25rem;transition:color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out}
+        .form-control:focus{color:#212529;background-color:#fff;border-color:#86b7fe;outline:0;box-shadow:0 0 0 .25rem rgba(13,110,253,.25)}
+        .form-control::-webkit-date-and-time-value{height:1.5em}
+        .form-control::-moz-placeholder{color:#6c757d;opacity:1}
+        .form-control::placeholder{color:#6c757d;opacity:1}
+        .btn-primary{color:#fff;background-color:#0d6efd;border-color:#0d6efd}
+        .btn-primary:hover{color:#fff;background-color:#0b5ed7;border-color:#0a58ca}
+        .pay-box{width:350px;margin:50px auto}
+        .form-item{margin:20px 0}
+        .form-item .title{display:block;line-height:38px}
+        .form-item p{flex:1}
+        .btn-block{width:100%}
+        .err-info{color:red;font-size:13px}
+        .form-item .title{display: flex;}
+        .form-item .title label{flex:1;}
+        .text-center{text-align: center;}
+        .footer{position:absolute;bottom:0;left:0;width:100%;padding:10px 0;font-size:12px;background-color:#fff;z-index:99}
+        .footer a{text-decoration:none;color:#666}
+        .nav-icons{width:250px;height:30px;margin:0 auto;text-align:center}
+        .nav-icons a{width:20px;display:block;float:left;margin-right:5px;height:28px;background:url(https://img.alicdn.com/tps/TB1.cMTIpXXXXbLXVXXXXXXXXXX.png) no-repeat 0 0}
+        a.pic1{background-position:0 -5px;width:18px}
+        a.pic1:hover{background-position:1px -28px;width:18px}
+        a.pic2{background-position:-33px -5px;width:40px}
+        a.pic2:hover{background-position:-32px -28px;width:40px}
+        a.pic3{background-position:-74px -5px;width:33px}
+        a.pic3:hover{background-position:-73px -28px;width:33px}
+        a.pic4{background-position:-115px -5px;width:18px}
+        a.pic4:hover{background-position:-114px -28px;width:18px}
+        a.pic5{background-position:-135px -5px;width:31px}
+        a.pic5:hover{background-position:-134px -28px;width:31px}
+        a.pic7{background-position:-200px -5px;width:20px}
+        a.pic7:hover{background-position:-200px -26px;width:20px}
+    </style>
+    <script src="https://cdn.staticfile.org/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+<div class="nav" data-v-3063a7af="">
+    <div class="container" data-v-3063a7af="">
+        <div class="row" data-v-3063a7af="">
+            <div class="logo float-left" data-v-3063a7af="">
+                <span class="site-logo">
+                    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+                         xmlns="http://www.w3.org/2000/svg" width="512" height="512">
+                        <path d="M512.4 0c282.8 0 512 229.2 512 512s-229.2 512-512 512S0.4 794.8 0.4 512 229.7 0 512.4 0z"
+                              fill="#3E5BF2"
+                              data-spm-anchor-id="a313x.7781069.0.i0"></path>
+                        <path d="M512.4 184.9c-180.6 0-327.1 146.4-327.1 327.1 0 57.4 14.8 111.4 40.8 158.3l-40.8 168.8L356 799.3c46.5 25.4 99.8 39.8 156.5 39.8 180.6 0 327.1-146.4 327.1-327.1-0.1-180.7-146.5-327.1-327.2-327.1z m123.4 394.2c-12.7 56.6-55.4 81.5-104.1 90.4L512 735H412l19.4-64.6c-47.1-5.8-83.6-17.1-83.6-17.1l23.7-81.1c222.4 74.7 202.3-87.5 202.3-87.5s73.5 21.5 62 94.4z m17.6-128.7c-222.4-74.7-202.3 87.5-202.3 87.5s-73.5-21.5-62-94.4c13.1-58.5 58.2-83.1 108.9-91.3l19-63.3h100l-19.1 63.8c45 5.9 79.2 16.6 79.2 16.6l-23.7 81.1z"
+                              fill="#ffffff" data-spm-anchor-id="a313x.7781069.0.i1"></path>
+                    </svg>
+                </span>
+                <span class="site-text" data-v-3063a7af="">魔法支付</span></div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="message-wrap" th:text="${message}"></div>
+    <div class="order-info">
+        <div class="title" th:text="${order.title}"></div>
+        <div style="display: flex;margin-top: 10px;">
+            <div class="item">
+                <span>支付金额:</span>
+                <span class="money" th:text="${money}"></span>
+                <span class="unit">元</span>
+            </div>
+            <div class="item ">
+                <span>订单编号:</span>
+                <span class="mch" th:text="${order.no}"></span>
+            </div>
+            <div class="item">
+                <span>收款方:</span>
+                <span class="mch" th:text="${mch.appName}"></span>
+            </div>
+            <div>
+                <a href="##">订单详情</a>
+            </div>
+        </div>
+    </div>
+    <div class="pay-box">
+        <form action="./pay" method="post">
+            <input type="hidden" name="no" th:value="${order.no}">
+            <input type="hidden" name="notifyUrl" th:value="${order.notifyUrl}">
+            <input type="hidden" name="callback" th:value="${param.callback}">
+            <input type="hidden" name="merchantId" th:value="${param.merchantId}">
+
+            <div class="form-item">
+                <div class="title">
+                    <label for="username">支付账户:</label>
+                    <span id="err-username" class="err-info"></span>
+                </div>
+                <p>
+                    <input id="username" name="username" class="form-control" type="text" placeholder="请输入账户邮箱或者手机号码">
+                </p>
+
+            </div>
+
+            <div class="form-item">
+                <div class="title">
+                    <label for="password">支付密码:</label>
+                    <span id="err-password" class="err-info"></span>
+                </div>
+                <p>
+                    <input id="password" name="password" class="form-control" type="password" placeholder="请输入支付密码">
+                </p>
+                <div class="err-notice err-info" style="height: 24px;margin: 5px 0;"></div>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-primary btn-block btn-submit">支付</button>
+            </div>
+            <a href="http://localhost:3001/#/login" target="_blank">没有账号，点击注册</a>
+        </form>
+    </div>
+</div>
+<div class="footer text-center">
+    <div class="ownership">
+        <a href="###">经营许可证编号：合字B2-1234567890</a>
+        <a style="margin-left:10px;" href="##">网站备案：蜀ICP备1234567890号-1</a>
+    </div>
+    <div class="nav-icons">
+        <a href="javascript:;" class="pic1"></a>
+        <a href="javascript:;" class="pic2"></a>
+        <a href="javascript:;" class="pic3"></a>
+        <a href="javascript:;" class="pic4"></a>
+        <a href="javascript:;" class="pic7"></a>
+    </div>
+</div>
+<script src="./../static/jquery.min.js"></script>
+<script>
+    $(() => {
+        $('form').on('submit', function () {
+            $('.err-info').html('');
+            let isErr = false;
+            if (!$('#username').val()) {
+                isErr = true;
+                $('#err-username').html('请输入支付账号');
+            }
+            if (!$('#password').val()) {
+                isErr = true;
+                $('#err-password').html('请输入支付密码');
+            }
+            if (isErr) {
+                return false;
+            }
+            const data = $(this).serialize();
+            $('.btn-submit').attr('disabled', true);
+            $('.err-notice').html('开始支付...');
+            $.post($(this).attr('action'), data, (ret) => {
+                $('.err-notice').html('');
+                $('.btn-submit').removeAttr('disabled');
+                if (ret.code != 0) {
+                    $('.err-notice').html(ret.message);
+                } else {
+                    alert('支付成功');
+                    location.href = ret.data;
+                }
+            }, 'json');
+            return false;
+        });
+    })
+</script>
+</body>
+</html>

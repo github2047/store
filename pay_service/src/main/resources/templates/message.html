@@ -1,0 +1,54 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>魔法支付</title>
+    <style>
+        .text-show{display:none}
+        .row:after{content:' ';display:block;clear:both}
+        .float-left{float:left}
+        .float-right{float:right}
+        .nav{background-color:rgba(215,215,215,0);border-bottom:solid 1px #3333330f}
+        .container{max-width:1000px;margin:auto}
+        .logo{padding:10px 0;display:flex}
+        .site-logo{display:inline-block;height:50px;width:50px}
+        .site-logo .icon{display:block;height:50px;width:50px}
+        .site-text{margin-left:10px;margin-top:10px;float:left;font-size:20px;font-weight:700;color:#666}
+        .message-wrap{margin-top:40px;background-color:#e5e5e5a1;padding:30px;border-radius:5px;color:red;font-size:26px}
+        .error-icon{fill:#8457ff;vertical-align:middle}
+        .text-center{text-align: center;}
+    </style>
+</head>
+<body>
+<div class="nav" data-v-3063a7af="">
+    <div class="container" data-v-3063a7af="">
+        <div class="row" data-v-3063a7af="">
+            <div class="logo float-left" data-v-3063a7af="">
+                <span class="site-logo">
+                    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+                         xmlns="http://www.w3.org/2000/svg" width="512" height="512">
+                        <path d="M512.4 0c282.8 0 512 229.2 512 512s-229.2 512-512 512S0.4 794.8 0.4 512 229.7 0 512.4 0z"
+                              fill="#3E5BF2"
+                              data-spm-anchor-id="a313x.7781069.0.i0"></path>
+                        <path d="M512.4 184.9c-180.6 0-327.1 146.4-327.1 327.1 0 57.4 14.8 111.4 40.8 158.3l-40.8 168.8L356 799.3c46.5 25.4 99.8 39.8 156.5 39.8 180.6 0 327.1-146.4 327.1-327.1-0.1-180.7-146.5-327.1-327.2-327.1z m123.4 394.2c-12.7 56.6-55.4 81.5-104.1 90.4L512 735H412l19.4-64.6c-47.1-5.8-83.6-17.1-83.6-17.1l23.7-81.1c222.4 74.7 202.3-87.5 202.3-87.5s73.5 21.5 62 94.4z m17.6-128.7c-222.4-74.7-202.3 87.5-202.3 87.5s-73.5-21.5-62-94.4c13.1-58.5 58.2-83.1 108.9-91.3l19-63.3h100l-19.1 63.8c45 5.9 79.2 16.6 79.2 16.6l-23.7 81.1z"
+                              fill="#ffffff" data-spm-anchor-id="a313x.7781069.0.i1"></path>
+                    </svg>
+                </span>
+                <span class="site-text" data-v-3063a7af="">魔法支付</span></div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="message-wrap text-center">
+        <svg class="error-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3877" width="48" height="48"><path d="M512 85.333333C276.48 85.333333 85.333333 276.266667 85.333333 512s191.146667 426.666667 426.666667 426.666667 426.666667-190.933333 426.666667-426.666667S747.52 85.333333 512 85.333333z m42.666667 640h-85.333334v-85.333333h85.333334v85.333333z m0-170.666666h-85.333334V298.666667h85.333334v256z"></path></svg>
+        <span th:text="${message}"></span>
+    </div>
+    <div style="margin-top: 20px;" class="text-center">
+        <a href="javascript:history.back();" style="text-decoration: none;">返回</a>
+    </div>
+</div>
+</body>
+</html>
