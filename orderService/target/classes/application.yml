@@ -1,0 +1,42 @@
+server:
+  port: 30082
+spring:
+  application:
+    name: order_service
+  datasource:
+    url: jdbc:mysql://localhost:3306/shop
+    username: root
+    password: 123123
+    type: com.alibaba.druid.pool.DruidDataSource
+  jpa:
+    show-sql: true
+
+eureka:
+  instance:
+    instance-id: Order-Service
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://localhost:30001/eureka/
+    register-with-eureka: true
+    fetch-registry: true
+logging:
+  level:
+    org.example.store.mapper: debug
+
+info:
+  app:
+    id: order-service
+    name: black_soul
+    email: 2412601628@qq.com
+
+mybatis:
+  type-aliases-package: org.example.store.po
+  mapper-locations: classpath:mappers/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+pay:
+  id: 1
+  public-key: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAq8bvQvE1g2HNW4jx7xWW4ZRAcx5HnvSwkTPC13yzHBQux7yGyTX6e+CqfpOUCXs6zA5MUh6Wv86AqVcE+sLLxaRW8yTyRyB35DNF58FJ8mAI8JrDWBuhJqkfc/s37Vbixa3Xqk18pBsIhnpYFX00qo9UQ5Xs+I1vj7KeMbJ5ZvJ1wQKF7/OejIKvUHMnCURRclViXaXsBQUXIRG+nFs7/JXjmlky0ec786lJrcB+2lXYZhqgBaVyJ8jmtoZcYiLjRzhXCwe6l8hNzjfYv1FdP9u+0vOwUl1mYUhtWcCD8RlFB0uezz7x1L0jDkffVDkFygSQvuDM2pGYJM0ipNBAkQIDAQAB
+  private-key: MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCrxu9C8TWDYc1biPHvFZbhlEBzHkee9LCRM8LXfLMcFC7HvIbJNfp74Kp+k5QJezrMDkxSHpa/zoCpVwT6wsvFpFbzJPJHIHfkM0XnwUnyYAjwmsNYG6EmqR9z+zftVuLFrdeqTXykGwiGelgVfTSqj1RDlez4jW+Psp4xsnlm8nXBAoXv856Mgq9QcycJRFFyVWJdpewFBRchEb6cWzv8leOaWTLR5zvzqUmtwH7aVdhmGqAFpXInyOa2hlxiIuNHOFcLB7qXyE3ON9i/UV0/277S87BSXWZhSG1ZwIPxGUUHS57PPvHUvSMOR99UOQXKBJC+4MzakZgkzSKk0ECRAgMBAAECggEAKfdI/tbFFxruu70iNiHVIblBYZ51Ku1msaKuqEyLyYFYyG1TlJa+YkNKA/B0Czjy7WVU2f8lHykJH9Xlnom2lMuIfpB5LE1PXQ31tx/uu+sgY/+7V6wwW6yXxZMLX82JS3gkJzQVDlaYZ5o+KMnU8xJfKL/ZDAQpzDZ8FXIf3Lla4+po2zeLXpY0roP/J55hkRwnnsv3tx0k6EjxlKLH9eP1+8dIjxcQ3NSjopVmoRPdbhwDP9N62PqJsVlgmePtLeQBBQ8JqWX+6C6hSUOuVFpo4pHGoTLLGHNS5QrknUMkpYKMveD6cYSI1fzwrVy7YQG6RgITSV9eHiwCOSTk0QKBgQDamNiXEltczj+u6QuthpQe7BjdueqpkZu1TABHpYxFU7yDF5bhNPqo11BRd/+SQVgICNMM3Xcdd+y7uG1V43VlAjlRhd2ZUCiUY9EJRI+fWw/nV4QV2ZqzOP+8flbcN0KefV2nurUBFKxS2qcs/RNzmiuYYhnYh88fzzEZUiUzHQKBgQDJKz6wwRiPKO5iKkiKi4FxShL/vV5SwiC2NyWtTSzfl7nliyIOOrWrTcL0CIUnZcVRD3AiGexRQgqW2zFQP3LgXXDAt+3Cjc4el1qmvcBTQzMUNXEF80L1feoUECHCEsXxiGQ3QNU2Jo45tGw539ii1ex0zx/+EcUVnBIwWYJ1BQKBgBFPpWdhVsbktnpdjkUxsS05uUZl4MWI+HHFEQibfZ5H4VfoWFSBY5BXbM7m1+B3OEd6m2wbZcF5q8+57T6uAq/7GxrvpPrtNCl8NiOrwEv4ZCwH7Dfmwa+LxgThZHOQFMCEYRRVXtw1DOiK1E5lxFKVVPp+Wlmhd6+nMtY0gSmpAoGBAKZkFYtfe+/VnC8n6C5oK13INiS/vkfXd/UfchOA1Q/v0HwTc8yvNNqHDCyK64/ltqpQiaA7LuMbK+URUh2dDWiVARD2UTttzUIyUHHAW1bDK3mYpm6UghrJ1hZYLYP3wTABb1rgTjpm85a5LBdGlkpBhT4sn7qnegtgtw60ypn9AoGAUhFmaUD8Mi67HSeacVcb+zhF3aMtcwha8MaAifq9W48nCXbrFNm/Dc8eyTdThBWePWvf6I1pAgzek8SJSWmOYrapYEAp7RykyUyW2MopNbAmqk175vJk8qvflsfCHlJaAFvj5vTcnKrbqJ0kgasju/EuZ/G4ZMbiKO1p5IfkYq4=

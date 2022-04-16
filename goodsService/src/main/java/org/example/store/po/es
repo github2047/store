@@ -1,0 +1,33 @@
+PUT /goods_info
+{
+  "settings": {
+    "number_of_replicas": 1,
+    "number_of_shards": 1
+  },
+  "mappings": {
+    "properties": {
+      "id": {
+        "type": "integer"
+      },
+      "title": {
+        "type": "text",
+        "search_analyzer": "ik_smart",
+        "analyzer": "ik_smart"
+      },
+      "picture": {
+        "type": "text"
+      },
+      "price": {
+        "type": "integer"
+      },
+      "classification": {
+        "type": "text",
+        "search_analyzer": "ik_smart",
+        "analyzer": "ik_smart"
+      },
+      "sales": {
+        "type": "integer"
+      }
+    }
+  }
+}
