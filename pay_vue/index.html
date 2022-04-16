@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="icon" href="/favicon.ico"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>魔法支付 MoFa Pay</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@3.2.16/dist/vue.global.prod.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@0.23.0/dist/axios.min.js"></script>
+    <style>
+        @keyframes before{0%{width:.5em;box-shadow:1em -.5em rgba(225,20,98,.75),-1em .5em rgba(111,202,220,.75)}
+            35%{width:2.5em;box-shadow:0 -.5em rgba(225,20,98,.75),0 .5em rgba(111,202,220,.75)}
+            70%{width:.5em;box-shadow:-1em -.5em rgba(225,20,98,.75),1em .5em rgba(111,202,220,.75)}
+            100%{box-shadow:1em -.5em rgba(225,20,98,.75),-1em .5em rgba(111,202,220,.75)}
+        }
+        @keyframes after{0%{height:.5em;box-shadow:.5em 1em rgba(61,184,143,.75),-.5em -1em rgba(233,169,32,.75)}
+            35%{height:2.5em;box-shadow:.5em 0 rgba(61,184,143,.75),-.5em 0 rgba(233,169,32,.75)}
+            70%{height:.5em;box-shadow:.5em -1em rgba(61,184,143,.75),-.5em 1em rgba(233,169,32,.75)}
+            100%{box-shadow:.5em 1em rgba(61,184,143,.75),-.5em -1em rgba(233,169,32,.75)}
+        }
+        .app-loading-text .loader{margin:auto;position:relative;width:2.5em;height:2.5em;transform:rotate(165deg)}
+        .app-loading-text .loader:after,.app-loading-text .loader:before{content:'';position:absolute;top:50%;left:50%;display:block;width:.5em;height:.5em;border-radius:.25em;transform:translate(-50%,-50%)}
+        .app-loading-text .loader:before{animation:before 2s infinite}
+        .app-loading-text .loader:after{animation:after 2s infinite}
+        .app-loading-text{font-family:"PingFang SC","Microsoft YaHei",sans-serif;position:fixed;left:0;right:0;text-align:center;top:50%;transform:translateY(-50%);font-size:20px}
+        .app-loading-wrap{background: url(//img.alicdn.com/tps/TB1h9xxIFXXXXbKXXXXXXXXXXXX.jpg) no-repeat center center #fff;background-size: cover;height: 100vh;position:absolute;left:0;right:0;top:0;}
+    </style>
+</head>
+<body>
+<div id="app">
+    <div class="app-loading-wrap">
+        <div class="app-loading-text">
+            <div class=loader></div>
+            <div style="margin-top: 20px;color:#bbb">
+                <div>应用资源加载中...</div>
+                <div>请使用Chrome/Firefox等现在浏览器或采用极速模式浏览</div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="module" src="/src/main.ts"></script>
+</body>
+</html>
